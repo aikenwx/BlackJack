@@ -1,10 +1,13 @@
 package blackjack;
 
+import java.util.Scanner;
+
 public class Game {
   private Scoreboard scoreboard;
   private Deck deck;
   private Player player;
   private Player dealer;
+
   Scanner reader = new Scanner(System.in);
 
   public Game() {
@@ -29,8 +32,7 @@ public class Game {
     System.out.println("Let's play!");
     System.out.println();
 
-    while (playGame()) {
-    }
+    while (playGame()) {}
 
     System.out.println("Thanks for playing!");
   }
@@ -104,10 +106,10 @@ public class Game {
 
     System.out.println("Your current score is: " + scoreboard.toString());
     System.out.println("continue playing? (y/n)");
-    String input = Scanner.nextLine();
+    String input = reader.nextLine();
     while (!input.equals("y") && !input.equals("n")) {
       System.out.println("Invalid input. Please enter 'y' or 'n'.");
-      input = System.console().readLine();
+      input = reader.nextLine();
     }
     System.out.println();
 

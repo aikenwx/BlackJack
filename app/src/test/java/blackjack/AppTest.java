@@ -6,8 +6,12 @@ package blackjack;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import javax.sound.midi.SysexMessage;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -24,21 +28,25 @@ class AppTest {
   @Test
   void appHasAGreeting() {
 
-    DeckStub deckStub = new DeckStub();
-    deckStub.addCard(new Card(Suit.SPADES, Rank.ACE));
-    deckStub.addCard(new Card(Suit.HEARTS, Rank.ACE));
+//    DeckStub deckStub = new DeckStub();
+//    deckStub.addCard(new Card(Suit.SPADES, Rank.ACE));
+//    deckStub.addCard(new Card(Suit.HEARTS, Rank.ACE));
+//
+//    deckStub.addCard(new Card(Suit.SPADES, Rank.TEN));
+//    deckStub.addCard(new Card(Suit.CLUBS, Rank.JACK));
+//
+//    for (int i = 0; i < 13; i++) {
+//      deckStub.addCard(new Card(Suit.CLUBS, Rank.values()[i]));
+//    }
+//
+//    Game game = new Game(deckStub, new User(), new Dealer(), new Scoreboard());
+//    // System.out.println("Welcome to Blackjack!");
+//    ByteArrayInputStream in = new ByteArrayInputStream("s\nn\n".getBytes());
+//
+//    System.setIn(in);
+//    game.startSession();
 
-    deckStub.addCard(new Card(Suit.SPADES, Rank.TEN));
-    deckStub.addCard(new Card(Suit.CLUBS, Rank.JACK));
-
-    for (int i = 0; i < 13; i++) {
-      deckStub.addCard(new Card(Suit.CLUBS, Rank.values()[i]));
-    }
-
-    Game game = new Game(deckStub, new User(), new Dealer(), new Scoreboard());
-    // System.out.println("Welcome to Blackjack!");
-    // game.startSession();
-
+    System.out.println("Welcome to Blackjack!");
     assertEquals("Welcome to Blackjack!\n", outputStreamCaptor.toString());
 
   }

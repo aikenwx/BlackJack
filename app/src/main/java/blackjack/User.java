@@ -1,9 +1,13 @@
 package blackjack;
 
+import java.util.Scanner;
+
 public class User extends Player {
   public User() {
     super();
   }
+
+  private Scanner reader = new Scanner(System.in);
 
   @Override
   public boolean decideToHit(Deck deck) {
@@ -11,10 +15,10 @@ public class User extends Player {
 
     System.out.println("Would you like to hit or stay? (h/s)");
 
-    String input = System.console().readLine();
+    String input = reader.nextLine();
     while (!input.equals("h") && !input.equals("s")) {
       System.out.println("Invalid input. Please enter 'h' or 's'.");
-      input = System.console().readLine();
+      input = reader.nextLine();
     }
     System.out.println();
 

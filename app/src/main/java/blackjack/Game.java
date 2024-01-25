@@ -32,7 +32,8 @@ public class Game {
     System.out.println("Let's play!");
     System.out.println();
 
-    while (playGame()) {}
+    while (playGame()) {
+    }
 
     System.out.println("Thanks for playing!");
   }
@@ -75,6 +76,12 @@ public class Game {
     return concludeGame(player, dealer, deck);
   }
 
+  /**
+   * Checks for a win and updates the scoreboard accordingly
+   * 
+   * @param player the player
+   * @param dealer the dealer
+   */
   private void checkForWin(Player player, Player dealer) {
     System.out.println("Opening hands:\n");
 
@@ -104,7 +111,7 @@ public class Game {
     player.discardHand(deck);
     dealer.discardHand(deck);
 
-    System.out.println("Your current score is: " + scoreboard.toString());
+    System.out.println(scoreboard.toString());
     System.out.println("continue playing? (y/n)");
     String input = reader.nextLine();
     while (!input.equals("y") && !input.equals("n")) {

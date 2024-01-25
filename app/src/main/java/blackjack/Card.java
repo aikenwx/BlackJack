@@ -8,11 +8,6 @@ public class Card {
     this.suit = suit;
     this.rank = rank;
   }
-
-  public String getSuit() {
-    return suit.toString();
-  }
-
   public String getRank() {
     return rank.toString();
   }
@@ -21,6 +16,7 @@ public class Card {
     return rank.getValue();
   }
 
+  @Override
   public String toString() {
     return rank + " of " + suit;
   }

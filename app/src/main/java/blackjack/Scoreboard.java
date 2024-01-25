@@ -1,6 +1,9 @@
 package blackjack;
 
 public class Scoreboard {
+  public static final int WIN_POINTS = 15;
+  public static final int LOSS_POINTS = 10;
+
   private int playerScore;
   private int playerWins;
   private int playerLosses;
@@ -11,12 +14,12 @@ public class Scoreboard {
   }
 
   public void updateScoreForPlayerWin() {
-    playerScore+=15;
+    playerScore += WIN_POINTS;
     playerWins++;
   }
 
   public void updateScoreForPlayerLoss() {
-    playerScore-=10;
+    playerScore -= LOSS_POINTS;
     playerLosses++;
   }
 
@@ -25,6 +28,7 @@ public class Scoreboard {
   }
 
   public String toString() {
-    return "Score: " + playerScore + " points, (" + playerWins + " wins, " + playerLosses + " losses, " + ties + " ties)";
+    return "Score: " + playerScore + " points, (" + playerWins + " wins, " + playerLosses + " losses, " + ties
+        + " ties)";
   }
 }

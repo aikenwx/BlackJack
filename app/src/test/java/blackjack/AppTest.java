@@ -3,12 +3,49 @@
  */
 package blackjack;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+  private final PrintStream standardOut = System.out;
+  private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
+  @BeforeEach
+  public void setUp() {
+    System.setOut(new PrintStream(outputStreamCaptor));
+  }
+
+  @Test
+  void appHasAGreeting() {
+
+    DeckStub deckStub = new DeckStub();
+    deckStub.addCard(new Card(Suit.SPADES, Rank.ACE));
+    deckStub.addCard(new Card(Suit.HEARTS, Rank.ACE));
+
+    deckStub.addCard(new Card(Suit.SPADES, Rank.TEN));
+    deckStub.addCard(new Card(Suit.CLUBS, Rank.JACK));
+
+    for (int i = 0; i < 13; i++) {
+      deckStub.addCard(new Card(Suit.CLUBS, Rank.values()[i]));
     }
+
+    Game game = new Game(deckStub, new User(), new Dealer(), new Scoreboard());
+    // System.out.println("Welcome to Blackjack!");
+    // game.startSession();
+
+    assertEquals("Welcome to Blackjack!\n", outputStreamCaptor.toString());
+
+  }
+
+  @AfterEach
+  public void tearDown() {
+    System.setOut(standardOut);
+  }
+
 }

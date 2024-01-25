@@ -4,8 +4,8 @@ import java.util.Vector;
 import java.util.Collections;
 
 public class Deck {
-  private Vector<Card> cards = new Vector<Card>();
-  private Vector<Card> discardPile = new Vector<Card>();
+  protected Vector<Card> cards = new Vector<Card>();
+  protected Vector<Card> discardPile = new Vector<Card>();
 
   public Deck() {
     for (Rank rank : Rank.values()) {

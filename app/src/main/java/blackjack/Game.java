@@ -5,12 +5,20 @@ public class Game {
   private Deck deck;
   private Player player;
   private Player dealer;
+  Scanner reader = new Scanner(System.in);
 
   public Game() {
     this.player = new User();
     this.dealer = new Dealer();
     this.deck = new Deck();
     this.scoreboard = new Scoreboard();
+  }
+
+  public Game(Deck deck, User player, Dealer dealer, Scoreboard scoreboard) {
+    this.deck = deck;
+    this.player = player;
+    this.dealer = dealer;
+    this.scoreboard = scoreboard;
   }
 
   public void startSession() {
@@ -96,7 +104,7 @@ public class Game {
 
     System.out.println("Your current score is: " + scoreboard.toString());
     System.out.println("continue playing? (y/n)");
-    String input = System.console().readLine();
+    String input = Scanner.nextLine();
     while (!input.equals("y") && !input.equals("n")) {
       System.out.println("Invalid input. Please enter 'y' or 'n'.");
       input = System.console().readLine();
